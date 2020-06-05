@@ -161,7 +161,7 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
       // this FlutterTextureView is detached from the FlutterRenderer, we need to stop rendering.
       // TODO(mattcarroll): introduce a isRendererConnectedToSurface() to wrap "getWindowToken() !=
       // null"
-      if (getWindowToken() != null) {
+      if (getWindowToken() != null && isAttachedToFlutterRenderer) {
         Log.v(TAG, "Disconnecting FlutterRenderer from Android surface.");
         disconnectSurfaceFromRenderer();
       }
